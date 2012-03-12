@@ -1,0 +1,8 @@
+# Chinese (China) translations for Ticketee
+
+zh-CN:
+  model:
+    project:
+      controller:
+        notice: "项目添加成功"
+        alert: "项目没有添加成功"

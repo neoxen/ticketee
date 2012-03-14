@@ -6,3 +6,8 @@ zh-CN:
       controller:
         notice: "项目添加成功"
         alert: "项目没有添加成功"
+    ticket:
+      controller:
+        notice: "纲要添加成功"
+        alert: "纲要没有添加成功"
+

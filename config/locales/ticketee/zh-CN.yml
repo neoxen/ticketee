@@ -4,10 +4,18 @@ zh-CN:
   model:
     project:
       controller:
-        notice: "项目添加成功"
-        alert: "项目没有添加成功"
+        create:
+          notice: "项目添加成功"
+          alert: "项目没有添加成功"
+        destrop:
+          notice: "项目删除成功"
     ticket:
       controller:
-        notice: "纲要添加成功"
-        alert: "纲要没有添加成功"
-
+        create:
+          notice: "纲要添加成功"
+          alert: "纲要没有添加成功"
+        update:
+          notice: "纲要更新成功"
+          alert: "纲要没有更新成功"
+        destrop:
+          notice: "纲要删除成功"

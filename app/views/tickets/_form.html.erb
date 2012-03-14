@@ -11,17 +11,20 @@
       <legend><%= controller.action_name.capitalize %> Ticket</legend>
       <div class="control-group">
         <%= f.label :title, :class => 'control-label' %>
-        <br>
-        <%= f.text_field :title, :class => 'text_field' %>
+        <div class="controls">
+          <%= f.text_field :title, :class => 'text_field' %>
+        </div>
       </div>
 
       <div class="control-group">
         <%= f.label :description, :class => 'control-label' %>
-        <br>
-        <%= f.text_area :description, :class => 'text_area' %>
+        <div class="controls">
+          <%= f.text_area :description, :class => 'text_area' %>
+        </div>
       </div>
       <div class="form-actions">
         <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to 'Cancel', project_path(@project), :class => 'btn' %>
       </div>
     </fieldset>
 <% end %>

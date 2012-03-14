@@ -13,15 +13,35 @@ class TicketsController < ApplicationController
 
   end
 
+  def edit
+
+  end
+
   def create
     @ticket = @project.tickets.build(params[:ticket])
     if @ticket.save
-      flash[:notice] = t('model.ticket.controller.notice')
+      flash[:notice] = t('model.ticket.controller.create.notice')
       redirect_to [@project, @ticket]
     else
-      flash[:alert] = t('model.ticket.controller.alert')
+      flash[:alert] = t('model.ticket.controller.create.alert')
       render :action => "new"
     end
+  end
+
+  def update
+    if @ticket.update_attributes(params[:ticket])
+      flash[:notice] = t('model.ticket.controller.update.notice')
+      redirect_to [@project, @ticket]
+    else
+      flash[:alert] = t('model.ticket.controller.update.alert')
+      render :action => "edit"
+    end
+  end
+
+  def destroy
+    @ticket.destroy
+    flash[:notice] = t('model.ticket.controller.destrop.notice')
+    redirect_to @project
   end
 
   private

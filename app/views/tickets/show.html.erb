@@ -2,3 +2,6 @@
   <h2><%= @ticket.title %></h2>
   <%= simple_format(@ticket.description) %>
 </div>
+<div class="form-actions">
+  <%= link_to 'Back', project_path(@project), :class => 'btn btn-primary' %>
+</div>

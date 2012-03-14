@@ -1,4 +1,31 @@
 <% title(@project.name, "Projects") %>
 <h2><%= @project.name %></h2>
 
-<%= link_to "New Ticket", new_project_ticket_path(@project) %>
+
+<% if @project.tickets.any? %>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Created at</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @project.tickets.each do |ticket| %>
+          <tr>
+            <td><%= link_to ticket.title, [@project, ticket] %></td>
+            <td><%= ticket.created_at %></td>
+            <td>
+              <%= link_to 'Edit', edit_project_ticket_path(@project, ticket), :class => 'btn btn-mini' %>
+              <%= link_to 'Destroy', [@project, ticket], :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+<div class="form-actions">
+  <%= link_to "New Ticket", new_project_ticket_path(@project), :class => 'btn btn-primary' %>
+  <%= link_to "Back", projects_path, :class => 'btn' %>
+</div>

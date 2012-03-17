@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_project
   before_filter :find_ticket, :only => [:show,
                                         :edit,

@@ -9,7 +9,9 @@
         <th>Title</th>
         <th>Created by</th>
         <th>Created at</th>
+
         <th>Actions</th>
+
       </tr>
       </thead>
       <tbody>
@@ -18,10 +20,12 @@
             <td><%= link_to ticket.title, [@project, ticket] %></td>
             <td><%= ticket.user.username %></td>
             <td><%= ticket.created_at %></td>
+
             <td>
               <%= link_to 'Edit', edit_project_ticket_path(@project, ticket), :class => 'btn btn-mini' %>
               <%= link_to 'Destroy', [@project, ticket], :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
             </td>
+
           </tr>
       <% end %>
       </tbody>

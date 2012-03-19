@@ -6,7 +6,9 @@
     <th>ID</th>
     <th>Name</th>
     <th>Created at</th>
-    <th>Actions</th>
+    <% admins_only do %>
+        <th>Actions</th>
+    <% end %>
   </tr>
   </thead>
   <tbody>
@@ -15,14 +17,18 @@
         <td><%= project.id %></td>
         <td><%= link_to project.name, project_path(project) %></td>
         <td><%= project.created_at %></td>
-        <td>
-          <%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', project_path(project), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-        </td>
+        <% admins_only do %>
+            <td>
+              <%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-mini' %>
+              <%= link_to 'Destroy', project_path(project), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+            </td>
+        <% end %>
       </tr>
   <% end %>
   </tbody>
 </table>
-<div class="form-actions">
-  <%= link_to "New Project", new_project_path, :class => 'btn btn-primary' %>
-</div>
+<%= admins_only do %>
+    <div class="form-actions">
+      <%= link_to "New Project", new_project_path, :class => 'btn btn-primary' %>
+    </div>
+<% end %>

@@ -19,7 +19,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = @project.tickets.build(params[:ticket])
+    @ticket = @project.tickets.build(params[:ticket].merge!(:user => current_user))
     if @ticket.save
       flash[:notice] = t('model.ticket.controller.create.notice')
       redirect_to [@project, @ticket]

@@ -7,6 +7,7 @@
       <thead>
       <tr>
         <th>Title</th>
+        <th>Created by</th>
         <th>Created at</th>
         <th>Actions</th>
       </tr>
@@ -15,6 +16,7 @@
       <% @project.tickets.each do |ticket| %>
           <tr>
             <td><%= link_to ticket.title, [@project, ticket] %></td>
+            <td><%= ticket.user.username %></td>
             <td><%= ticket.created_at %></td>
             <td>
               <%= link_to 'Edit', edit_project_ticket_path(@project, ticket), :class => 'btn btn-mini' %>

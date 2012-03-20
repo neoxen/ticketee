@@ -1,2 +1,26 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<% if @users.any? %>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user, [:admin, user] %></td>
+            <td><%= user.email %></td>
+            <td>
+
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+<div class="form-actions">
+  <%= link_to "New User", new_admin_user_path, :class => 'btn btn-primary' %>
+  <%= link_to "Back", admin_root_path, :class => 'btn' %>
+</div>

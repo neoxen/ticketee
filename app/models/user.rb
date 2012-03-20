@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :username, :password, :password_confirmation, :remember_me
   validates :username, :uniqueness => { :case_sensitive => false }
+  
+  def to_s
+    "#{username} (#{admin? ? "Admin" : "User"})"
+  end
 end

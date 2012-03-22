@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :username, :password, :password_confirmation, :remember_me
   validates :username, :uniqueness => { :case_sensitive => false }
   
+  has_many :permissions
+  
   def to_s
     "#{username} (#{admin? ? "Admin" : "User"})"
   end

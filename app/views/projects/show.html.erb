@@ -28,6 +28,8 @@
     </table>
 <% end %>
 <div class="form-actions">
-  <%= link_to "New Ticket", new_project_ticket_path(@project), :class => 'btn btn-primary' %>
-  <%= link_to "Back", projects_path, :class => 'btn' %>
+	<% authorized?("create tickets".to_sym, @project) do %>
+	  <%= link_to "New Ticket", new_project_ticket_path(@project), :class => 'btn btn-primary' %>
+	<% end %>
+	<%= link_to "Back", projects_path, :class => 'btn' %>
 </div>

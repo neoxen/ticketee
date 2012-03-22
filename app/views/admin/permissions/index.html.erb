@@ -1,6 +1,6 @@
 <h2>Permissions for <%= @user.username %></h2>
 <%= form_tag update_user_permissions_path, :method => :put do %>
-<table>
+<table class="table table-striped">
 	<thead>
 		<th>Project</th>
 		<% permissions.each do |name, text| %>
@@ -12,7 +12,7 @@
 		<tr class = '<%= cycle("odd", "even") %>'>
 			<td><%= project.name %></td>
 			<% permissions.each do |name, text| %>
-			￼￼￼￼            <td>
+			<td>
 				<%= check_box_tag "permissions[#{project.id}][#{name}]",
 				@ability.can?(name.to_sym, project) %>
 			</td>
@@ -21,5 +21,7 @@
 		<% end %>
 	</tbody>
 </table>
-<%= submit_tag "Update" %>
+<div class="form-actions">
+<%= submit_tag "Update", :class => 'btn btn-primary' %>
+</div>
 <% end %>

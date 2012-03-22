@@ -6,4 +6,5 @@ module Admin::PermissionsHelper
       "edit tickets" => "Edit Tickets",
       "delete tickets" => "Delete Tickets"
     }
+  end
 end

@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   before_filter :find_project, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Project.for(current_user).all
+    @projects = Project.for(current_user).page(params[:page]).per(5)
   end
 
   def new

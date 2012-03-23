@@ -52,3 +52,4 @@ end
 
 gem 'devise'
 gem 'cancan'
+gem 'kaminari'

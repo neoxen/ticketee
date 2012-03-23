@@ -33,8 +33,11 @@ class Admin::UsersController < Admin::BaseController
   end
   
   def create 
+    boolean_admin = params[:user][:admin] == "1"
+    params[:user].delete(:admin)
     @user = User.new(params[:user])
-    set_admin
+    @user.admin = boolean_admin
+    # set_admin
     if @user.save
       flash[:notice] = "User has been created."
       redirect_to admin_users_path
@@ -60,5 +63,6 @@ class Admin::UsersController < Admin::BaseController
   end
   def set_admin
     @user.admin = params[:user][:admin] == "1"
+    params[:user].delete(:admin)
   end
 end

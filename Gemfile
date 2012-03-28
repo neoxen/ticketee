@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org/'
 
 gem 'rails', '3.2.1'
 
@@ -17,7 +17,7 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
-  gem 'twitter-bootstrap-rails'
+  # gem 'twitter-bootstrap-rails'
 
   gem 'uglifier', '>= 1.0.3'
 end

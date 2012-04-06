@@ -31,6 +31,7 @@ GEM
     arel (3.0.0)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
+    bootstrap-sass (2.0.0)
     builder (3.0.0)
     cancan (1.6.7)
     capybara (1.1.2)
@@ -175,6 +176,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bootstrap-sass (= 2.0.0)
   cancan
   capybara
   coffee-rails (~> 3.2.1)
